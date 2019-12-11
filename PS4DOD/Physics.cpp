@@ -1,6 +1,6 @@
 #include "Physics.h"
 #include <cassert>
-namespace Physics
+namespace Gameplay
 {
 	PhysicsSystem::PhysicsSystem(vector <Entity*>& asteroidArr, vector <Entity*>& bulletArr) : m_AsteroidArr(asteroidArr), m_BulletArr(bulletArr)
 	{

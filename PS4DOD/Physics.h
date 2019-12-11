@@ -2,7 +2,7 @@
 
 #include "Entity.h"
 
-namespace Physics
+namespace Gameplay
 {
 	using namespace std;
 	using namespace EntitySpace;

@@ -9,7 +9,7 @@ int main()
 	{
 		using namespace std;
 		using namespace EntitySpace;
-		using namespace Physics;
+		using namespace Gameplay;
 
 		//initialize bullets
 		vector<Entity*> bulletList;
