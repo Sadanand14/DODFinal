@@ -20,8 +20,14 @@ namespace EntitySpace
 		float m_bodySphereRadius;
 		glm::vec3 m_velocity;
 
-		PhysicsComponent() : m_bodySphereRadius(5.0f), m_velocity(1.0f,0.0f,0.0f) {};
-		PhysicsComponent(float size) :m_bodySphereRadius(size), m_velocity(1.0f, 0.0f, 0.0f) {}
+		PhysicsComponent() : m_bodySphereRadius(5.0f), m_velocity(0.0f,0.0f,0.0f) 
+		{}
+
+		PhysicsComponent(float size) :m_bodySphereRadius(size), m_velocity(0.0f, 0.0f, 0.0f) 
+		{}
+
+		PhysicsComponent(vec3 velocity, float size):m_velocity(velocity), m_bodySphereRadius(size) 
+		{}
 	};
 
 	struct Transform
@@ -40,14 +46,10 @@ namespace EntitySpace
 		inline void SetPosition(vec3 value) { m_position = value; }
 
 		Transform(vec3 Pos) : m_position(Pos), m_rotation(0.0f, 0.0f, 0.0f), m_scale(1.0f, 1.0f, 1.0f)
-		{
-		
-		}
+		{}
 
 		Transform() :m_position(0.0f, 0.0f, 0.0f), m_rotation(0.0f, 0.0f, 0.0f), m_scale(1.0f, 1.0f, 1.0f)
-		{
-
-		}
+		{}
 	};
 
 
@@ -60,10 +62,23 @@ namespace EntitySpace
 		Status m_status;
 
 	public:
+
+		Entity(): m_status(Status::Inactive), m_renC(nullptr)
+		{
+			m_phyC = new PhysicsComponent();
+			m_transform = new Transform();
+		}
+
 		Entity(float size) : m_status(Status::Active), m_renC(nullptr)
 		{
 			m_phyC = new PhysicsComponent(size);
 			m_transform = new Transform();
+		}
+
+		Entity(vec3 pos, vec3 velocity, float size) : m_status(Status::Active), m_renC(nullptr)
+		{
+			m_phyC = new PhysicsComponent(velocity, size);
+			m_transform = new Transform(pos);
 		}
 
 		~Entity()

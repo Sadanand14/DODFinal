@@ -12,6 +12,7 @@ namespace EntityDOD
 	using namespace glm;
 
 	enum class Status { Active, Inactive };
+	using namespace glm;
 
 	struct RenderComponent
 	{
@@ -20,7 +21,18 @@ namespace EntityDOD
 
 	struct PhysicsComponent
 	{
+		float m_bodySphereRadius;
+		glm::vec3 m_velocity;
 		Status m_status;
+
+		PhysicsComponent() : m_bodySphereRadius(5.0f), m_velocity(0.0f, 0.0f, 0.0f)
+		{}
+
+		PhysicsComponent(float size) :m_bodySphereRadius(size), m_velocity(0.0f, 0.0f, 0.0f)
+		{}
+
+		PhysicsComponent(vec3 velocity, float size) :m_velocity(velocity), m_bodySphereRadius(size)
+		{}
 	};
 
 	struct Transform
@@ -36,12 +48,14 @@ namespace EntityDOD
 		inline const vec3& GetRotation() { return m_rotation; }
 		inline const vec3& GetScale() { return m_scale; }
 
-		Transform(vec3  Pos) : m_position(Pos), m_rotation(0.0f, 0.0f, 0.0f), m_scale(1.0f, 1.0f, 1.0f)
+		inline void SetPosition(vec3 value) { m_position = value; }
+
+		Transform(vec3 Pos) : m_position(Pos), m_rotation(0.0f, 0.0f, 0.0f), m_scale(1.0f, 1.0f, 1.0f)
 		{}
 
-		Transform() :m_position(0.0f, 0.0f, 0.0f), m_rotation(0.0f, 0.0f, 0.0f), m_scale(1.0f, 1.0f, 1.0f) {}
+		Transform() :m_position(0.0f, 0.0f, 0.0f), m_rotation(0.0f, 0.0f, 0.0f), m_scale(1.0f, 1.0f, 1.0f)
+		{}
 	};
-
 
 	class EntityGroup
 	{

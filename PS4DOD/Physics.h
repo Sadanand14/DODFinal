@@ -1,15 +1,15 @@
 #pragma once
 
-#include "Entity.h"
+#include "EntityDOD.h"
 
 namespace Gameplay
 {
 	using namespace std;
-	using namespace EntitySpace;
+	using namespace EntityDOD;
 	
 	class PhysicsSystem
 	{
-		vector<Entity*> m_AsteroidArr;
+		vector<Phys*> m_AsteroidArr;
 		vector<Entity*> m_BulletArr;
 
 		void CheckForCollisions();
