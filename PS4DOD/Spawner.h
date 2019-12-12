@@ -14,9 +14,7 @@ namespace Gameplay
 	class Spawner
 	{
 	private:
-		std::vector<Entity* > m_asteroidArr;
-		Entity* m_player;
-		
+		std::vector<Entity* >* m_asteroidArr;
 
 		glm::vec3 m_playerFront, m_playerRight, m_playerUp, m_playerPosition;//must be normalized except for postion
 		float m_timer;
@@ -30,7 +28,7 @@ namespace Gameplay
 		const unsigned int spwanCount = 5; 
 
 	public:
-		Spawner(std::vector<Entity* >& asteroidArr, Entity* entity);
+		Spawner(std::vector<Entity* >* asteroidArr);
 		~Spawner();
 		void Spawn(float dt);
 	};

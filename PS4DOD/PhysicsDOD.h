@@ -1,31 +1,25 @@
 #pragma once
 
 #include "EntityDOD.h"
+#include "SpawnerDOD.h"
 namespace Gameplay
 {
 	using namespace std;
 	using namespace EntityDOD;
 
-	class PhysicsSystem
+	class PhysicsDODSystem
 	{
-		vector<PhysicsComponent*> m_AsteroidArr;
-		vector<PhysicsComponent*> m_BulletArr;
-
-		void CheckForCollisions();
-		void UpdatePosition();
-
-		void DeactivateBullet(unsigned int index);
-		void DeactivateAsteroid(unsigned int index);
-		void SplitAsteroid(unsigned int index);
+		vector<PhysicsComponent> * m_AsteroidArr, * m_BulletArr;
+		SpawnerDOD* m_spawner;
 
 	public:
-		PhysicsSystem(vector<PhysicsComponent*>& asteroidArr, vector<PhysicsComponent*>& bulletArr);
-		~PhysicsSystem();
+		PhysicsDODSystem(vector<PhysicsComponent>* asteroidArr, vector<PhysicsComponent>* bulletArr, SpawnerDOD* spawner);
+		~PhysicsDODSystem();
 
-		inline void SetAsteroids(vector<PhysicsComponent*> value) { m_AsteroidArr = value; }
-		inline void SetBullets(vector<PhysicsComponent*> value) { m_BulletArr = value; }
+		inline void SetAsteroids(vector<PhysicsComponent>* value) { m_AsteroidArr = value; }
+		inline void SetBullets(vector<PhysicsComponent>* value) { m_BulletArr = value; }
 
-		void Update();
+		void Update(float dt);
 	};
 
 	float CalculateDistance(vec3 position1, vec3 position2);

@@ -1,5 +1,8 @@
-﻿  Main.cpp
-  Physics.cpp
-  Spwaner.cpp
+﻿  PhysicsDOD.cpp
+C:\Users\sadan\Desktop\Submissions\PS4\DODFinal\PS4DOD\EntityDOD.h(101,60): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\sadan\Desktop\Submissions\PS4\DODFinal\PS4DOD\PhysicsDOD.cpp(22,32): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\sadan\Desktop\Submissions\PS4\DODFinal\PS4DOD\PhysicsDOD.cpp(23,30): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  SpawnerDOD.cpp
+C:\Users\sadan\Desktop\Submissions\PS4\DODFinal\PS4DOD\EntityDOD.h(101,60): warning C4227: anachronism used: qualifiers on reference are ignored
   Generating Code...
-  PS4DOD.vcxproj -> D:\DODFinal\x64\Debug\PS4DOD.exe
+  PS4DOD.vcxproj -> C:\Users\sadan\Desktop\Submissions\PS4\DODFinal\x64\Debug\PS4DOD.exe
